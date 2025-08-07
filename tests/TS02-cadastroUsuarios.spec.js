@@ -13,6 +13,7 @@ test.describe.serial('Cadastro usuarios', () => {
     })
 
     test('Cadastrar Usuários com credenciais validas', async({page})=>{
+        
         const emailDinamico = `pedrotjb${Date.now()}@gmail.com`
         cadastroEmail = {
             ...cadastroUsuarios, email: emailDinamico
@@ -31,16 +32,17 @@ test.describe.serial('Cadastro usuarios', () => {
     })
     
     test('cadastro de usuarios com email em branco', async ({page})=>{
+        
         const emailDinamico = `pedrotjb${Date.now()}@gmail.com`
-        cadastroEmail = {
+        const cadastroEmail2 = {
             ...cadastroUsuarios, email: emailDinamico
         }
 
         await page.getByTestId('cadastrar-usuarios').click()
         await expect(page.getByText('Cadastro de usuários')).toBeVisible()
-        await page.locator('[id="nome"]').fill(cadastroEmail.name)
+        await page.locator('[id="nome"]').fill(cadastroEmail2.name)
         
-        await page.locator('[id="password"]').fill(cadastroEmail.senha)
+        await page.locator('[id="password"]').fill(cadastroEmail2.senha)
         await page.getByTestId('cadastrarUsuario').click()
         await expect(page.locator('div[class="alert alert-secondary alert-dismissible"] > span')).toHaveText('Email é obrigatório')
 
