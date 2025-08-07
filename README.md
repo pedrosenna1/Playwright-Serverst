@@ -20,7 +20,7 @@ Este projeto utiliza o [Playwright](https://playwright.dev/) para automação de
    npx playwright install
    ```
 
----
+----
 
 ## Estrutura dos Testes
 
