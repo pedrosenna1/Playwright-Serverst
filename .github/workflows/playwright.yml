@@ -1,3 +1,5 @@
+#Workflow configuration for Playwright tests
+# This workflow runs Playwright tests on push and pull request events to the main branch.
 name: Playwright Tests
 on:
   workflow_dispatch:
